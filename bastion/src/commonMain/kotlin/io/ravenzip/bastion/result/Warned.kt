@@ -1,6 +1,6 @@
 package io.ravenzip.bastion.result
 
-fun <T, W> Result.Warned<T, W>.toSuccess(): Result<T, W, Nothing> = Result.Success(this.data)
+fun <T, W> Result.Warned<T, W>.toSuccess(): Result.Success<T> = Result.Success(this.data)
 
 fun <T, W, R> Result.Warned<T, W>.mapData(transform: (T) -> R): Result.Warned<R, W> =
     Result.Warned(transform(this.data), this.warning)
