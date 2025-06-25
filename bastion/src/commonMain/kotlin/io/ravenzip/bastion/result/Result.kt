@@ -2,6 +2,12 @@ package io.ravenzip.bastion.result
 
 import io.ravenzip.bastion.verdict.Verdict
 
+typealias Success<T> = Result<T, Nothing, Nothing>
+
+typealias Warned<T, W> = Result<T, W, Nothing>
+
+typealias Failure<E> = Result<Nothing, Nothing, E>
+
 sealed interface Result<out T, out W, out E : Throwable> {
     data class Success<out T>(val data: T) : Result<T, Nothing, Nothing>
 
